@@ -125,7 +125,26 @@ def install_graphblas(grb_url: str, output_directory: str, ignore_cached: bool) 
             dest_file.write(content)
             print(f'Graphblas archive is downloaded: {gb_archive_path}')
     with tarfile.open(gb_archive_path, 'r:bz2') as gb_unarchived:
-        gb_unarchived.extractall(output_directory)
+        def is_within_directory(directory, target):
+            
+            abs_directory = os.path.abspath(directory)
+            abs_target = os.path.abspath(target)
+        
+            prefix = os.path.commonprefix([abs_directory, abs_target])
+            
+            return prefix == abs_directory
+        
+        def safe_extract(tar, path=".", members=None, *, numeric_owner=False):
+        
+            for member in tar.getmembers():
+                member_path = os.path.join(path, member.name)
+                if not is_within_directory(path, member_path):
+                    raise Exception("Attempted Path Traversal in Tar File")
+        
+            tar.extractall(path, members, numeric_owner=numeric_owner) 
+            
+        
+        safe_extract(gb_unarchived, output_directory)
         print(f'Graphblas is unarchived: {output_directory}')
     os.remove(gb_archive_path)
     check_paths_exist([graphblas_include, graphblas_library])
