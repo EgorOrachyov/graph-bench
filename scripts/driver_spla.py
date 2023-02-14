@@ -63,7 +63,7 @@ class DriverSpla(driver.Driver):
         runs = []
         for line in lines:
             if line.startswith("gpu(ms):"):
-                runs = [float(v) for v in line.split(" ")[1:-1]]
+                runs = [float(v) for v in line.split(", ")[1:-1]]
         return driver.ExecutionResult(runs[0], runs[1:])
 
     def _get_platform(self):
