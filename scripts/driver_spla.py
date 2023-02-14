@@ -35,7 +35,7 @@ class DriverSpla(driver.Driver):
     def run_bfs(self, graph: config.Graph, source_vertex, num_iterations) -> driver.ExecutionResult:
         output = subprocess.check_output(
             [str(self.exec_dir / self.spla_bfs),
-             f"--mtxpath={graph.path()}",
+             f"--mtxpath={graph.path_original()}",
              f"--niters={num_iterations}",
              f"--source={source_vertex}",
              f"--undirected={self.undirected}"] + self._get_platform())
@@ -44,7 +44,7 @@ class DriverSpla(driver.Driver):
     def run_sssp(self, graph: config.Graph, source_vertex, num_iterations) -> driver.ExecutionResult:
         output = subprocess.check_output(
             [str(self.exec_dir / self.spla_sssp),
-             f"--mtxpath={graph.path()}",
+             f"--mtxpath={graph.path_original()}",
              f"--niters={num_iterations}",
              f"--source={source_vertex}",
              f"--undirected={self.undirected}"] + self._get_platform())
@@ -53,7 +53,7 @@ class DriverSpla(driver.Driver):
     def run_tc(self, graph: config.Graph, num_iterations) -> driver.ExecutionResult:
         output = subprocess.check_output(
             [str(self.exec_dir / self.spla_tc),
-             f"--mtxpath={graph.path()}",
+             f"--mtxpath={graph.path_original()}",
              f"--niters={num_iterations}"] + self._get_platform())
         return DriverSpla._parse_output(output)
 
@@ -67,4 +67,4 @@ class DriverSpla(driver.Driver):
         return driver.ExecutionResult(runs[0], runs[1:])
 
     def _get_platform(self):
-        return [f"--platform={self.params['platform']}"] if "platform" in self.params else []
+        return [f"--platform={self.params['platform']}"]
