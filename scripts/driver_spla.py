@@ -18,9 +18,9 @@ class DriverSpla(driver.Driver):
     def __init__(self):
         super().__init__()
         self.exec_dir = config.DEPS / "spla" / "build"
-        self.spla_bfs = "spla_bfs" + config.EXECUTABLE_EXT
-        self.spla_sssp = "spla_sssp" + config.EXECUTABLE_EXT
-        self.spla_tc = "spla_tc" + config.EXECUTABLE_EXT
+        self.spla_bfs = "bfs" + config.EXECUTABLE_EXT
+        self.spla_sssp = "sssp" + config.EXECUTABLE_EXT
+        self.spla_tc = "tc" + config.EXECUTABLE_EXT
         self.undirected = 0
 
         try:
