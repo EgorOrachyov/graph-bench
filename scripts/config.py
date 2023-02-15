@@ -55,13 +55,23 @@ GRAPHS_BFS = [
     GRAPHS_DATA['hollywood-2009'],
     GRAPHS_DATA['roadNet-CA'],
     GRAPHS_DATA['com-Orkut'],
+    GRAPHS_DATA['cit-Patents'],
     GRAPHS_DATA['soc-LiveJournal'],
     GRAPHS_DATA['indochina-2004'],
     GRAPHS_DATA['rgg_n_2_22_s0'],
     GRAPHS_DATA['rgg_n_2_23_s0']
 ]
 
-GRAPHS_SSSP = []
+GRAPHS_SSSP = [
+    GRAPHS_DATA['hollywood-2009'],
+    GRAPHS_DATA['roadNet-CA'],
+    GRAPHS_DATA['com-Orkut'],
+    GRAPHS_DATA['cit-Patents'],
+    GRAPHS_DATA['soc-LiveJournal'],
+    GRAPHS_DATA['indochina-2004'],
+    GRAPHS_DATA['rgg_n_2_22_s0'],
+    GRAPHS_DATA['rgg_n_2_23_s0']
+]
 
 GRAPHS_TC = [
     GRAPHS_DATA['coAuthorsCiteseer'],
@@ -70,7 +80,8 @@ GRAPHS_TC = [
     GRAPHS_DATA['com-Orkut'],
     GRAPHS_DATA['cit-Patents'],
     GRAPHS_DATA['soc-LiveJournal'],
-    GRAPHS_DATA['rgg_n_2_22_s0']
+    GRAPHS_DATA['rgg_n_2_22_s0'],
+    GRAPHS_DATA['rgg_n_2_23_s0']
 ]
 
 ALGORITHMS = ["bfs", "sssp", "tc"]
