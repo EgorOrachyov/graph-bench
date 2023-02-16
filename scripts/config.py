@@ -18,14 +18,17 @@ DEFAULT_SOURCE_VERTEX = 0
 GRAPHS_NAMES = [
     'coAuthorsCiteseer',
     'coPapersDBLP',
+    'amazon-2008',
     'hollywood-2009',
+    'belgium_osm',
     'roadNet-CA',
     'com-Orkut',
     'cit-Patents',
     'rgg_n_2_22_s0',
     'soc-LiveJournal',
     'indochina-2004',
-    'rgg_n_2_23_s0'
+    'rgg_n_2_23_s0',
+    'road_central'
 ]
 
 
@@ -52,25 +55,31 @@ class Graph:
 GRAPHS_DATA = {name: Graph(name) for name in GRAPHS_NAMES}
 
 GRAPHS_BFS = [
+    GRAPHS_DATA['amazon-2008'],
     GRAPHS_DATA['hollywood-2009'],
+    GRAPHS_DATA['belgium_osm'],
     GRAPHS_DATA['roadNet-CA'],
     GRAPHS_DATA['com-Orkut'],
     GRAPHS_DATA['cit-Patents'],
     GRAPHS_DATA['soc-LiveJournal'],
     GRAPHS_DATA['indochina-2004'],
     GRAPHS_DATA['rgg_n_2_22_s0'],
-    GRAPHS_DATA['rgg_n_2_23_s0']
+    GRAPHS_DATA['rgg_n_2_23_s0'],
+    GRAPHS_DATA['road_central']
 ]
 
 GRAPHS_SSSP = [
+    GRAPHS_DATA['amazon-2008'],
     GRAPHS_DATA['hollywood-2009'],
+    GRAPHS_DATA['belgium_osm'],
     GRAPHS_DATA['roadNet-CA'],
     GRAPHS_DATA['com-Orkut'],
     GRAPHS_DATA['cit-Patents'],
     GRAPHS_DATA['soc-LiveJournal'],
     GRAPHS_DATA['indochina-2004'],
     GRAPHS_DATA['rgg_n_2_22_s0'],
-    GRAPHS_DATA['rgg_n_2_23_s0']
+    GRAPHS_DATA['rgg_n_2_23_s0'],
+    GRAPHS_DATA['road_central']
 ]
 
 GRAPHS_TC = [
