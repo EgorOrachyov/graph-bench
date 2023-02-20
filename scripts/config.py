@@ -17,6 +17,7 @@ DEFAULT_SOURCE_VERTEX = 0
 
 GRAPHS_NAMES = [
     'coAuthorsCiteseer',
+    'mycielskian19',
     'coPapersDBLP',
     'amazon-2008',
     'hollywood-2009',
@@ -28,7 +29,8 @@ GRAPHS_NAMES = [
     'soc-LiveJournal',
     'indochina-2004',
     'rgg_n_2_23_s0',
-    'road_central'
+    'road_central',
+    'twitter7'
 ]
 
 
