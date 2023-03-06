@@ -20,6 +20,7 @@ class DriverSpla(driver.Driver):
         self.exec_dir = config.DEPS / "spla" / "build"
         self.spla_bfs = "bfs" + config.EXECUTABLE_EXT
         self.spla_sssp = "sssp" + config.EXECUTABLE_EXT
+        self.spla_pr = "pr" + config.EXECUTABLE_EXT
         self.spla_tc = "tc" + config.EXECUTABLE_EXT
         self.undirected = 0
 
@@ -48,6 +49,13 @@ class DriverSpla(driver.Driver):
              f"--niters={num_iterations}",
              f"--source={source_vertex}",
              f"--undirected={self.undirected}"] + self._get_platform())
+        return DriverSpla._parse_output(output)
+
+    def run_pr(self, graph: config.Graph, num_iterations) -> driver.ExecutionResult:
+        output = subprocess.check_output(
+            [str(self.exec_dir / self.spla_pr),
+             f"--mtxpath={graph.path_original()}",
+             f"--niters={num_iterations}"] + self._get_platform())
         return DriverSpla._parse_output(output)
 
     def run_tc(self, graph: config.Graph, num_iterations) -> driver.ExecutionResult:

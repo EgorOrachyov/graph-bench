@@ -22,6 +22,7 @@ class DriverLaGraph(driver.Driver):
         self.exec_dir = lagraph_build_root / "src" / "benchmark"
         self.lagraph_bfs = "bfs_demo" + config.EXECUTABLE_EXT
         self.lagraph_sssp = "sssp_demo" + config.EXECUTABLE_EXT
+        self.lagraph_pr = "gappagerank_demo" + config.EXECUTABLE_EXT
         self.lagraph_tc = "tc_demo" + config.EXECUTABLE_EXT
 
         try:
@@ -44,6 +45,11 @@ class DriverLaGraph(driver.Driver):
             output = subprocess.check_output(
                 [str(self.exec_dir / self.lagraph_sssp), graph.path(), sources_file.name])
             return DriverLaGraph._parse_output(output, "sssp", 8)
+
+    def run_pr(self, graph: config.Graph, num_iterations) -> driver.ExecutionResult:
+        output = subprocess.check_output(
+            [str(self.exec_dir / self.lagraph_pr), graph.path()])
+        return DriverLaGraph._parse_output(output, "trial:", 3)
 
     def run_tc(self, graph: config.Graph, num_iterations) -> driver.ExecutionResult:
         output = subprocess.check_output(

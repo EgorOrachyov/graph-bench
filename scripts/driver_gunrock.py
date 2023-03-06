@@ -14,6 +14,7 @@ class DriverGunrock(driver.Driver):
         self.exec_dir = config.DEPS / "gunrock" / "build" / "bin"
         self.bfs = "bfs"
         self.sssp = "sssp"
+        self.pr = "pr"
         self.tc = "tc"
 
         # type of the graph file, market (mtx) by default
@@ -39,6 +40,15 @@ class DriverGunrock(driver.Driver):
     def run_sssp(self, graph: config.Graph, source_vertex, num_iterations) -> driver.ExecutionResult:
         output = subprocess.check_output([str(self.exec_dir / self.sssp),
                                           f"--src={source_vertex}",
+                                          f"--num-runs={num_iterations + 1}",
+                                          f"--undirected={self.undirected}",
+                                          f"--graph-file={graph.path()}",
+                                          f"--graph-type={self.type}",
+                                          f"--device={self.device}"])
+        return DriverGunrock._parse_output(output)
+
+    def run_pr(self, graph: config.Graph, num_iterations) -> driver.ExecutionResult:
+        output = subprocess.check_output([str(self.exec_dir / self.pr),
                                           f"--num-runs={num_iterations + 1}",
                                           f"--undirected={self.undirected}",
                                           f"--graph-file={graph.path()}",

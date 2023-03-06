@@ -6,7 +6,7 @@ import argparse
 
 GUNROCK_PATH = config.DEPS / "gunrock"
 GUNROCK_BUILD = GUNROCK_PATH / "build"
-GUNROCK_TARGETS = ["bfs", "sssp", "tc"]
+GUNROCK_TARGETS = ["bfs", "sssp", "pr", "tc"]
 
 
 def build(args):

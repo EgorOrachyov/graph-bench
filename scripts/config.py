@@ -57,29 +57,52 @@ class Graph:
 GRAPHS_DATA = {name: Graph(name) for name in GRAPHS_NAMES}
 
 GRAPHS_BFS = [
+    GRAPHS_DATA['coAuthorsCiteseer'],
+    GRAPHS_DATA['mycielskian19'],
+    GRAPHS_DATA['coPapersDBLP'],
     GRAPHS_DATA['amazon-2008'],
     GRAPHS_DATA['hollywood-2009'],
     GRAPHS_DATA['belgium_osm'],
     GRAPHS_DATA['roadNet-CA'],
     GRAPHS_DATA['com-Orkut'],
     GRAPHS_DATA['cit-Patents'],
+    GRAPHS_DATA['rgg_n_2_22_s0'],
     GRAPHS_DATA['soc-LiveJournal'],
     GRAPHS_DATA['indochina-2004'],
-    GRAPHS_DATA['rgg_n_2_22_s0'],
     GRAPHS_DATA['rgg_n_2_23_s0'],
     GRAPHS_DATA['road_central']
 ]
 
 GRAPHS_SSSP = [
+    GRAPHS_DATA['coAuthorsCiteseer'],
+    GRAPHS_DATA['mycielskian19'],
+    GRAPHS_DATA['coPapersDBLP'],
     GRAPHS_DATA['amazon-2008'],
     GRAPHS_DATA['hollywood-2009'],
     GRAPHS_DATA['belgium_osm'],
     GRAPHS_DATA['roadNet-CA'],
     GRAPHS_DATA['com-Orkut'],
     GRAPHS_DATA['cit-Patents'],
+    GRAPHS_DATA['rgg_n_2_22_s0'],
     GRAPHS_DATA['soc-LiveJournal'],
     GRAPHS_DATA['indochina-2004'],
+    GRAPHS_DATA['rgg_n_2_23_s0'],
+    GRAPHS_DATA['road_central']
+]
+
+GRAPHS_PR = [
+    GRAPHS_DATA['coAuthorsCiteseer'],
+    GRAPHS_DATA['mycielskian19'],
+    GRAPHS_DATA['coPapersDBLP'],
+    GRAPHS_DATA['amazon-2008'],
+    GRAPHS_DATA['hollywood-2009'],
+    GRAPHS_DATA['belgium_osm'],
+    GRAPHS_DATA['roadNet-CA'],
+    GRAPHS_DATA['com-Orkut'],
+    GRAPHS_DATA['cit-Patents'],
     GRAPHS_DATA['rgg_n_2_22_s0'],
+    GRAPHS_DATA['soc-LiveJournal'],
+    GRAPHS_DATA['indochina-2004'],
     GRAPHS_DATA['rgg_n_2_23_s0'],
     GRAPHS_DATA['road_central']
 ]
@@ -95,5 +118,5 @@ GRAPHS_TC = [
     GRAPHS_DATA['rgg_n_2_23_s0']
 ]
 
-ALGORITHMS = ["bfs", "sssp", "tc"]
-GRAPHS = {"bfs": GRAPHS_BFS, "sssp": GRAPHS_SSSP, "tc": GRAPHS_TC}
+ALGORITHMS = ["bfs", "sssp", "pr", "tc"]
+GRAPHS = {"bfs": GRAPHS_BFS, "sssp": GRAPHS_SSSP, "pr": GRAPHS_PR, "tc": GRAPHS_TC}

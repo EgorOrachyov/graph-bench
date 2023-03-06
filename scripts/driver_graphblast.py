@@ -14,6 +14,7 @@ class DriverGraphBLAST(driver.Driver):
         self.exec_dir = config.DEPS / "graphblast" / "bin"
         self.gbfs = "gbfs"
         self.gsssp = "gsssp"
+        self.gpr = "gpr"
         self.gtc = "gtc"
 
         # 0: do not display per iteration timing, 1: display per iteration timing
@@ -42,6 +43,15 @@ class DriverGraphBLAST(driver.Driver):
                                           f"--niter={num_iterations}",
                                           f"--timing={self.timing}",
                                           f"--directed={self.directed}",
+                                          f"--skip_cpu_verify={self.skip_cpu_verify}",
+                                          str(graph.path())])
+        return DriverGraphBLAST._parse_output(output, num_iterations)
+
+    def run_pr(self, graph: config.Graph, num_iterations) -> driver.ExecutionResult:
+        output = subprocess.check_output([str(self.exec_dir / self.gpr),
+                                          f"--niter={num_iterations}",
+                                          f"--timing={self.timing}",
+                                          f"--directed=2",
                                           f"--skip_cpu_verify={self.skip_cpu_verify}",
                                           str(graph.path())])
         return DriverGraphBLAST._parse_output(output, num_iterations)

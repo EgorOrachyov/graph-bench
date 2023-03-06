@@ -47,11 +47,11 @@ class Driver:
     executable files.
 
     Algorithms:
-        * bfs
-        * sssp
-        * tc
-        * [future] cc
-        * [future] page rank
+        * bfs         (breadth-first search)
+        * sssp        (single-source shortest paths)
+        * pr          (page rank)
+        * tc          (triangles counting)
+        * [future] cc (connected components)
     """
 
     def __init__(self):
@@ -82,6 +82,16 @@ class Driver:
         Run sssp algorithm benchmark.
         :param graph: Graph with its properties to run on
         :param source_vertex: Source vertex to start algorithm
+        :param num_iterations: Number of iteration to run
+        :return: execution results
+        """
+        pass
+
+    @abc.abstractmethod
+    def run_pr(self, graph: config.Graph, num_iterations: int) -> ExecutionResult:
+        """
+        Run pr algorithm benchmark.
+        :param graph: Graph with its properties to run on
         :param num_iterations: Number of iteration to run
         :return: execution results
         """

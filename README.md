@@ -107,7 +107,7 @@ python3 scripts/benchmark.py --tool=[all, spla, lagraph, gunrock, graphblast]
 Run particular algorithm for performance measurements.
 
 ```shell
-python3 scripts/benchmark.py --algo=[all, bfs, sssp, tc]
+python3 scripts/benchmark.py --algo=[all, bfs, sssp, pr, tc]
 ```
 
 See help for more options.
