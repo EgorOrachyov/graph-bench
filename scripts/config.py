@@ -10,7 +10,7 @@ DEPS = ROOT / "deps"
 SYSTEM = {'Darwin': 'macos', 'Linux': 'linux', 'Windows': 'windows'}[platform.system()]
 EXECUTABLE_EXT = {'macos': '', 'windows': '.exe', 'linux': ''}[SYSTEM]
 LIBRARY_EXT = {'macos': '.dylib', 'linux': '.so', 'windows': '.dll'}[SYSTEM]
-DATASET_SUFFIX = ".dt.un.rl"
+DATASET_SUFFIX = ".conv"
 
 DEFAULT_NUM_ITERATIONS = 10
 DEFAULT_SOURCE_VERTEX = 0
@@ -102,7 +102,6 @@ GRAPHS_PR = [
     GRAPHS_DATA['cit-Patents'],
     GRAPHS_DATA['rgg_n_2_22_s0'],
     GRAPHS_DATA['soc-LiveJournal'],
-    GRAPHS_DATA['indochina-2004'],
     GRAPHS_DATA['rgg_n_2_23_s0'],
     GRAPHS_DATA['road_central']
 ]

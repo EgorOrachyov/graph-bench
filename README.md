@@ -90,7 +90,17 @@ Download all graphs one by one archives and extract into [dataset](./dataset) fo
 Alternatively, download all graphs within single archive
 from [Google Drive](https://drive.google.com/file/d/14RHaC_Ze_qoeb2GuhXOkirVaTvkRlv35/view?usp=share_link).
 
-### 4. How to run benchmarks
+### 5. How to prepare data
+
+After dataset unpack into [dataset](./dataset) folder you have to run convert tool to prepare graphs.
+
+```shell
+python3 scripts/convert.py
+```
+
+This tool uses spla `convert.exe` to convert source `.mtx` files into undirected `.mtx` graphs.
+
+### 6. How to run benchmarks
 
 Run all algorithms & graphs & tools performance measurements.
 
