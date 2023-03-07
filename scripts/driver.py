@@ -121,6 +121,8 @@ class Driver:
             result = self.run_bfs(graph, int(params['source']), int(params['num_iterations']))
         elif algo == 'sssp':
             result = self.run_sssp(graph, int(params['source']), int(params['num_iterations']))
+        elif algo == 'pr':
+            result = self.run_pr(graph, int(params['num_iterations']))
         elif algo == 'tc':
             result = self.run_tc(graph, int(params['num_iterations']))
         else:
