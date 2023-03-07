@@ -23,6 +23,7 @@ class DriverSpla(driver.Driver):
         self.spla_pr = "pr" + config.EXECUTABLE_EXT
         self.spla_tc = "tc" + config.EXECUTABLE_EXT
         self.undirected = 0
+        self.run_cpu = False
 
         try:
             self.exec_dir = pathlib.Path(os.environ["BENCH_DRIVER_SPLA"])
@@ -39,6 +40,7 @@ class DriverSpla(driver.Driver):
              f"--mtxpath={graph.path_original()}",
              f"--niters={num_iterations}",
              f"--source={source_vertex}",
+             f"--run-cpu={self.run_cpu}",
              f"--undirected={self.undirected}"] + self._get_platform())
         return DriverSpla._parse_output(output)
 
@@ -48,6 +50,7 @@ class DriverSpla(driver.Driver):
              f"--mtxpath={graph.path_original()}",
              f"--niters={num_iterations}",
              f"--source={source_vertex}",
+             f"--run-cpu={self.run_cpu}",
              f"--undirected={self.undirected}"] + self._get_platform())
         return DriverSpla._parse_output(output)
 
@@ -55,6 +58,7 @@ class DriverSpla(driver.Driver):
         output = subprocess.check_output(
             [str(self.exec_dir / self.spla_pr),
              f"--mtxpath={graph.path_original()}",
+             f"--run-cpu={self.run_cpu}",
              f"--niters={num_iterations}"] + self._get_platform())
         return DriverSpla._parse_output(output)
 
@@ -62,6 +66,7 @@ class DriverSpla(driver.Driver):
         output = subprocess.check_output(
             [str(self.exec_dir / self.spla_tc),
              f"--mtxpath={graph.path_original()}",
+             f"--run-cpu={self.run_cpu}",
              f"--niters={num_iterations}"] + self._get_platform())
         return DriverSpla._parse_output(output)
 
