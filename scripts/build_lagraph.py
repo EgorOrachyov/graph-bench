@@ -22,6 +22,7 @@ CONDA_PLATFORM = {
 LAGRAPH_TARGETS = [
     'bfs_demo' + config.EXECUTABLE_EXT,
     'tc_demo' + config.EXECUTABLE_EXT,
+    'gappagerank_demo' + config.EXECUTABLE_EXT,
     'sssp_demo' + config.EXECUTABLE_EXT
 ]
 SUITESPARSE_GITHUB = 'https://github.com/DrTimothyAldenDavis/GraphBLAS'
