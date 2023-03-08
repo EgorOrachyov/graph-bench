@@ -1,6 +1,7 @@
 import subprocess
 import driver
 import config
+import dataset
 
 __all__ = [
     "DriverGunrock"
@@ -27,7 +28,7 @@ class DriverGunrock(driver.Driver):
     def name(self) -> str:
         return "gunrock"
 
-    def run_bfs(self, graph: config.Graph, source_vertex, num_iterations) -> driver.ExecutionResult:
+    def run_bfs(self, graph: dataset.Graph, source_vertex, num_iterations) -> driver.ExecutionResult:
         output = subprocess.check_output([str(self.exec_dir / self.bfs),
                                           f"--src={source_vertex}",
                                           f"--num-runs={num_iterations + 1}",
@@ -37,7 +38,7 @@ class DriverGunrock(driver.Driver):
                                           f"--device={self.device}"])
         return DriverGunrock._parse_output(output)
 
-    def run_sssp(self, graph: config.Graph, source_vertex, num_iterations) -> driver.ExecutionResult:
+    def run_sssp(self, graph: dataset.Graph, source_vertex, num_iterations) -> driver.ExecutionResult:
         output = subprocess.check_output([str(self.exec_dir / self.sssp),
                                           f"--src={source_vertex}",
                                           f"--num-runs={num_iterations + 1}",
@@ -47,7 +48,7 @@ class DriverGunrock(driver.Driver):
                                           f"--device={self.device}"])
         return DriverGunrock._parse_output(output)
 
-    def run_pr(self, graph: config.Graph, num_iterations) -> driver.ExecutionResult:
+    def run_pr(self, graph: dataset.Graph, num_iterations) -> driver.ExecutionResult:
         output = subprocess.check_output([str(self.exec_dir / self.pr),
                                           f"--num-runs={num_iterations + 1}",
                                           f"--undirected={self.undirected}",
@@ -56,7 +57,7 @@ class DriverGunrock(driver.Driver):
                                           f"--device={self.device}"])
         return DriverGunrock._parse_output(output)
 
-    def run_tc(self, graph: config.Graph, num_iterations) -> driver.ExecutionResult:
+    def run_tc(self, graph: dataset.Graph, num_iterations) -> driver.ExecutionResult:
         output = subprocess.check_output([str(self.exec_dir / self.sssp),
                                           f"--num-runs={num_iterations + 1}",
                                           f"--undirected=1",

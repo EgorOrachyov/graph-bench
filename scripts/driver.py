@@ -1,17 +1,17 @@
 import abc
 import statistics
-import config
-from dataclasses import dataclass
-from typing import List
+import dataset
+import dataclasses
+import typing
 
 
-@dataclass
+@dataclasses.dataclass
 class ExecutionResult:
     """
     Result of the execution of the single algorithm benchmark run
     """
     warm_up: float
-    times: List[float]
+    times: typing.List[float]
 
     def avg(self):
         return statistics.mean(self.times)
@@ -56,6 +56,7 @@ class Driver:
 
     def __init__(self):
         self.params = dict()
+        self.graph_exceptions = dict()
 
     @abc.abstractmethod
     def name(self) -> str:
@@ -66,7 +67,7 @@ class Driver:
         pass
 
     @abc.abstractmethod
-    def run_bfs(self, graph: config.Graph, source_vertex: int, num_iterations: int) -> ExecutionResult:
+    def run_bfs(self, graph: dataset.Graph, source_vertex: int, num_iterations: int) -> ExecutionResult:
         """
         Run bfs algorithm benchmark.
         :param graph: Graph with its properties to run on
@@ -77,7 +78,7 @@ class Driver:
         pass
 
     @abc.abstractmethod
-    def run_sssp(self, graph: config.Graph, source_vertex: int, num_iterations: int) -> ExecutionResult:
+    def run_sssp(self, graph: dataset.Graph, source_vertex: int, num_iterations: int) -> ExecutionResult:
         """
         Run sssp algorithm benchmark.
         :param graph: Graph with its properties to run on
@@ -88,7 +89,7 @@ class Driver:
         pass
 
     @abc.abstractmethod
-    def run_pr(self, graph: config.Graph, num_iterations: int) -> ExecutionResult:
+    def run_pr(self, graph: dataset.Graph, num_iterations: int) -> ExecutionResult:
         """
         Run pr algorithm benchmark.
         :param graph: Graph with its properties to run on
@@ -98,7 +99,7 @@ class Driver:
         pass
 
     @abc.abstractmethod
-    def run_tc(self, graph: config.Graph, num_iterations: int) -> ExecutionResult:
+    def run_tc(self, graph: dataset.Graph, num_iterations: int) -> ExecutionResult:
         """
         Run tc algorithm benchmark.
         :param graph: Graph with its properties to run on
@@ -107,7 +108,7 @@ class Driver:
         """
         pass
 
-    def run(self, graph: config.Graph, algo: str, params: dict) -> ExecutionResult:
+    def run(self, graph: dataset.Graph, algo: str, params: dict) -> ExecutionResult:
         """
         Execute driver benchmark with specified params
         :param graph: Graph to analyse
@@ -129,6 +130,9 @@ class Driver:
             raise Exception(f"Unknown algorithm {algo}")
 
         return result
+
+    def exceptions(self):
+        return self.graph_exceptions
 
     def __str__(self):
         return self.name()

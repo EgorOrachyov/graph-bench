@@ -1,6 +1,7 @@
 import subprocess
 import driver
 import config
+import dataset
 
 __all__ = [
     "DriverGraphBLAST"
@@ -27,7 +28,7 @@ class DriverGraphBLAST(driver.Driver):
     def name(self) -> str:
         return "graphblast"
 
-    def run_bfs(self, graph: config.Graph, source_vertex, num_iterations) -> driver.ExecutionResult:
+    def run_bfs(self, graph: dataset.Graph, source_vertex, num_iterations) -> driver.ExecutionResult:
         output = subprocess.check_output([str(self.exec_dir / self.gbfs),
                                           f"--source={source_vertex}",
                                           f"--niter={num_iterations}",
@@ -37,7 +38,7 @@ class DriverGraphBLAST(driver.Driver):
                                           str(graph.path())])
         return DriverGraphBLAST._parse_output(output, num_iterations)
 
-    def run_sssp(self, graph: config.Graph, source_vertex, num_iterations) -> driver.ExecutionResult:
+    def run_sssp(self, graph: dataset.Graph, source_vertex, num_iterations) -> driver.ExecutionResult:
         output = subprocess.check_output([str(self.exec_dir / self.gsssp),
                                           f"--source={source_vertex}",
                                           f"--niter={num_iterations}",
@@ -47,20 +48,20 @@ class DriverGraphBLAST(driver.Driver):
                                           str(graph.path())])
         return DriverGraphBLAST._parse_output(output, num_iterations)
 
-    def run_pr(self, graph: config.Graph, num_iterations) -> driver.ExecutionResult:
+    def run_pr(self, graph: dataset.Graph, num_iterations) -> driver.ExecutionResult:
         output = subprocess.check_output([str(self.exec_dir / self.gpr),
                                           f"--niter={num_iterations}",
                                           f"--timing={self.timing}",
-                                          f"--directed=2",
+                                          f"--directed={self.directed}",
                                           f"--skip_cpu_verify={self.skip_cpu_verify}",
                                           str(graph.path())])
         return DriverGraphBLAST._parse_output(output, num_iterations)
 
-    def run_tc(self, graph: config.Graph, num_iterations) -> driver.ExecutionResult:
+    def run_tc(self, graph: dataset.Graph, num_iterations) -> driver.ExecutionResult:
         output = subprocess.check_output([str(self.exec_dir / self.gtc),
                                           f"--niter={num_iterations}",
                                           f"--timing={self.timing}",
-                                          f"--directed=2",
+                                          f"--directed={self.directed}",
                                           f"--skip_cpu_verify={self.skip_cpu_verify}",
                                           str(graph.path())])
         return DriverGraphBLAST._parse_output(output, num_iterations)

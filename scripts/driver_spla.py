@@ -3,6 +3,7 @@ import pathlib
 import subprocess
 import driver
 import config
+import dataset
 
 __all__ = [
     "DriverSpla"
@@ -34,7 +35,7 @@ class DriverSpla(driver.Driver):
     def name(self) -> str:
         return "spla"
 
-    def run_bfs(self, graph: config.Graph, source_vertex, num_iterations) -> driver.ExecutionResult:
+    def run_bfs(self, graph: dataset.Graph, source_vertex, num_iterations) -> driver.ExecutionResult:
         output = subprocess.check_output(
             [str(self.exec_dir / self.spla_bfs),
              f"--mtxpath={graph.path_original()}",
@@ -44,7 +45,7 @@ class DriverSpla(driver.Driver):
              f"--undirected={self.undirected}"] + self._get_platform())
         return DriverSpla._parse_output(output)
 
-    def run_sssp(self, graph: config.Graph, source_vertex, num_iterations) -> driver.ExecutionResult:
+    def run_sssp(self, graph: dataset.Graph, source_vertex, num_iterations) -> driver.ExecutionResult:
         output = subprocess.check_output(
             [str(self.exec_dir / self.spla_sssp),
              f"--mtxpath={graph.path_original()}",
@@ -54,7 +55,7 @@ class DriverSpla(driver.Driver):
              f"--undirected={self.undirected}"] + self._get_platform())
         return DriverSpla._parse_output(output)
 
-    def run_pr(self, graph: config.Graph, num_iterations) -> driver.ExecutionResult:
+    def run_pr(self, graph: dataset.Graph, num_iterations) -> driver.ExecutionResult:
         output = subprocess.check_output(
             [str(self.exec_dir / self.spla_pr),
              f"--mtxpath={graph.path_original()}",
@@ -62,7 +63,7 @@ class DriverSpla(driver.Driver):
              f"--niters={num_iterations}"] + self._get_platform())
         return DriverSpla._parse_output(output)
 
-    def run_tc(self, graph: config.Graph, num_iterations) -> driver.ExecutionResult:
+    def run_tc(self, graph: dataset.Graph, num_iterations) -> driver.ExecutionResult:
         output = subprocess.check_output(
             [str(self.exec_dir / self.spla_tc),
              f"--mtxpath={graph.path_original()}",
