@@ -5,7 +5,7 @@ import driver_gunrock
 import driver_lagraph
 import driver_spla
 import argparse
-import statistics
+import stats
 
 DRIVERS = {
     "graphblast": driver_graphblast.DriverGraphBLAST(),
@@ -69,8 +69,8 @@ def main():
                 except Exception as e:
                     print(f"  Failed due {e}")
 
-    statistics.output_stats(run_stats)
-    statistics.output_stats_csv(run_stats, args.csv)
+    stats.output_stats(run_stats)
+    stats.output_stats_csv(run_stats, args.csv)
 
 
 if __name__ == '__main__':

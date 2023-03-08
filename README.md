@@ -108,16 +108,30 @@ Run all algorithms & graphs & tools performance measurements.
 python3 scripts/benchmark.py
 ```
 
-Run particular tool for performance measurements.
+Run particular tool for performance measurements. Use comma and no space to select multiple.
 
 ```shell
 python3 scripts/benchmark.py --tool=[all, spla, lagraph, gunrock, graphblast]
 ```
 
-Run particular algorithm for performance measurements.
+```shell
+python3 scripts/benchmark.py --tool=spla,lagraph,gunrock,graphblast
+```
+
+Run particular algorithm for performance measurements. Use comma and no space to select multiple.
 
 ```shell
 python3 scripts/benchmark.py --algo=[all, bfs, sssp, pr, tc]
+```
+
+```shell
+python3 scripts/benchmark.py --algo=bfs,sssp,pr,tc
+```
+
+Provide csv file name to save all stats of the benchmark.
+
+```shell
+python3 scripts/benchmark.py --csv=my_results.csv
 ```
 
 See help for more options.
