@@ -20,6 +20,11 @@ def print_table(table):
         print(", ".join([str(v) for v in row]))
 
 
+def print_table_file(table, file):
+    for row in table:
+        file.write(", ".join([str(v) for v in row]) + "\n")
+
+
 def build_table(cols: dict, prop):
     header = ["graph"]
     rows = dict()
@@ -46,6 +51,24 @@ def output_stats(run_stats: dict):
         print_table(build_table(stats, lambda x: x.avg()))
 
 
+def output_stats_file(run_stats: dict, file_to_save):
+    with open(file_to_save, 'w') as file:
+        for algo, stats in run_stats.items():
+            file.write(f"{algo}\n")
+            print_table_file(build_table(stats, lambda x: x.avg()), file)
+
+
+def output_stats_csv(run_stats: dict, file_to_save):
+    with open(file_to_save, 'w') as file:
+        file.write("graph,avg,sd,min,max\n")
+        for algo, stats_algo in run_stats.items():
+            file.write(f"{algo},,,,\n")
+            for tool, stats_tool in stats_algo.item():
+                file.write(f"{tool},,,,\n")
+                for graph, run in stats_tool.items():
+                    file.write(f"{graph},{run.avg()},{run.sd()},{run.minimum()},{run.maximum()}\n")
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--algo", default="all", help="Algorithm to test [all, bfs, sssp, pr, tc]")
@@ -54,6 +77,7 @@ def main():
     parser.add_argument("--source", default=config.DEFAULT_SOURCE_VERTEX, help="Source vertex for bfs, sssp, etc.")
     parser.add_argument("--graph", help="Graph to run algorithms")
     parser.add_argument("--platform", default="0", help="OpenCL platform to run (for OpenCL-based tools)")
+    parser.add_argument("--csv", default="benchmark.cvs", help="Csv table to save benchmark results")
     args = parser.parse_args()
 
     if args.algo == 'all':
@@ -100,6 +124,7 @@ def main():
                     print(f"  Failed due {e}")
 
     output_stats(run_stats)
+    output_stats_csv(run_stats, args.csv)
 
 
 if __name__ == '__main__':
