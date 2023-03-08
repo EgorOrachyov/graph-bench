@@ -15,7 +15,7 @@ DATASET_SUFFIX = ".conv"
 DEFAULT_NUM_ITERATIONS = 10
 DEFAULT_SOURCE_VERTEX = 0
 
-GRAPHS_NAMES = [
+DATASET_NAMES = [
     'coAuthorsCiteseer',
     'mycielskian19',
     'coPapersDBLP',
@@ -31,6 +31,23 @@ GRAPHS_NAMES = [
     'rgg_n_2_23_s0',
     'road_central',
     'twitter7'
+]
+
+GRAPHS_NAMES = [
+    'coAuthorsCiteseer',
+    'mycielskian19',
+    'coPapersDBLP',
+    'amazon-2008',
+    'hollywood-2009',
+    'belgium_osm',
+    'roadNet-CA',
+    'com-Orkut',
+    'cit-Patents',
+    'rgg_n_2_22_s0',
+    'soc-LiveJournal',
+    'indochina-2004',
+    'rgg_n_2_23_s0',
+    'road_central'
 ]
 
 
@@ -108,7 +125,6 @@ GRAPHS_PR = [
 
 GRAPHS_TC = [
     GRAPHS_DATA['coAuthorsCiteseer'],
-    GRAPHS_DATA['mycielskian19'],
     GRAPHS_DATA['coPapersDBLP'],
     GRAPHS_DATA['amazon-2008'],
     GRAPHS_DATA['roadNet-CA'],
