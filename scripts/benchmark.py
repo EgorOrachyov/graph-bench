@@ -65,7 +65,7 @@ def main():
                 print(f"  Graph: {g}")
                 try:
                     # skip some graphs
-                    if algorithm in tool.exceptions() and g in tool.exceptions()[algorithm]:
+                    if algorithm in tool.exceptions() and g.id in tool.exceptions()[algorithm]:
                         print(f"  Skip: {g}")
                         continue
 
