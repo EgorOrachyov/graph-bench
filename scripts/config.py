@@ -108,13 +108,16 @@ GRAPHS_PR = [
 
 GRAPHS_TC = [
     GRAPHS_DATA['coAuthorsCiteseer'],
+    GRAPHS_DATA['mycielskian19'],
     GRAPHS_DATA['coPapersDBLP'],
+    GRAPHS_DATA['amazon-2008'],
     GRAPHS_DATA['roadNet-CA'],
     GRAPHS_DATA['com-Orkut'],
     GRAPHS_DATA['cit-Patents'],
     GRAPHS_DATA['soc-LiveJournal'],
     GRAPHS_DATA['rgg_n_2_22_s0'],
-    GRAPHS_DATA['rgg_n_2_23_s0']
+    GRAPHS_DATA['rgg_n_2_23_s0'],
+    GRAPHS_DATA['road_central']
 ]
 
 ALGORITHMS = ["bfs", "sssp", "pr", "tc"]
