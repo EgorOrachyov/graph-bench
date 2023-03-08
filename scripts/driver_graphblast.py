@@ -21,7 +21,9 @@ class DriverGraphBLAST(driver.Driver):
         self.graph_exceptions[dataset.ALGORITHM_NAME_pr] = {
             dataset.GRAPH_NAME_mycielskian19,
             dataset.GRAPH_NAME_socLiveJournal,
-            dataset.GRAPH_NAME_rgg_n_2_23_s0
+            dataset.GRAPH_NAME_comOrkut,
+            dataset.GRAPH_NAME_rgg_n_2_23_s0,
+            dataset.GRAPH_NAME_road_central
         }
 
         # 0: do not display per iteration timing, 1: display per iteration timing
