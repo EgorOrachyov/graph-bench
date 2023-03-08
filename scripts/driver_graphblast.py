@@ -18,6 +18,11 @@ class DriverGraphBLAST(driver.Driver):
         self.gpr = "gpr"
         self.gtc = "gtc"
 
+        self.graph_exceptions[dataset.ALGORITHM_NAME_pr] = {
+            dataset.GRAPH_NAME_mycielskian19,
+            dataset.GRAPH_NAME_socLiveJournal
+        }
+
         # 0: do not display per iteration timing, 1: display per iteration timing
         self.timing = 0
         # 0: follow mtx, 1: force undirected graph to be directed, 2: force directed graph to be undirected

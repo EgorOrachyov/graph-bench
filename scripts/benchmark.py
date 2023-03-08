@@ -64,6 +64,11 @@ def main():
             for g in graphs[algorithm]:
                 print(f"  Graph: {g}")
                 try:
+                    # skip some graphs
+                    if algorithm in tool.exceptions() and g in tool.exceptions()[algorithm]:
+                        print(f"  Skip: {g}")
+                        continue
+
                     res = tool_stats[g.id] = tool.run(g, algorithm, params)
                     print(f"  Result: {res}")
                 except Exception as e:
