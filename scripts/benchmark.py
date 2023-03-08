@@ -63,7 +63,7 @@ def output_stats_csv(run_stats: dict, file_to_save):
         file.write("graph,avg,sd,min,max\n")
         for algo, stats_algo in run_stats.items():
             file.write(f"{algo},,,,\n")
-            for tool, stats_tool in stats_algo.item():
+            for tool, stats_tool in stats_algo.items():
                 file.write(f"{tool},,,,\n")
                 for graph, run in stats_tool.items():
                     file.write(f"{graph},{run.avg()},{run.sd()},{run.minimum()},{run.maximum()}\n")
