@@ -76,7 +76,7 @@ def main():
                     print(f"  Failed due {e}")
 
     stats.output_stats(run_stats)
-    stats.output_stats_overall(run_stats, args.csvtool)
+    stats.output_stats_overall(run_stats, args.csvall)
     stats.output_stats_tool(run_stats, args.csvtool)
 
 
