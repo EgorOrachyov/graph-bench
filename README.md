@@ -1,6 +1,5 @@
 # graph-bench
 
-[![JB Research](https://jb.gg/badges/research-flat-square.svg)](https://research.jetbrains.org/)
 [![License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/JetBrains-Research/spla-bench/blob/master/LICENSE.md)
 
 Benchmarks suite for performance study of various graph analysis frameworks for CPU/GPU computations.
@@ -131,7 +130,13 @@ python3 scripts/benchmark.py --algo=bfs,sssp,pr,tc
 Provide csv file name to save all stats of the benchmark.
 
 ```shell
-python3 scripts/benchmark.py --csv=my_results.csv
+python3 scripts/benchmark.py --csvall=my_results.csv
+```
+
+Provide csv file name to save per-tool detailed stats of the benchmark.
+
+```shell
+python3 scripts/benchmark.py --csvtool=my_results.csv
 ```
 
 See help for more options.
@@ -144,8 +149,3 @@ python3 scripts/benchmark.py -h
 
 This project licensed under MIT License. License text can be found in the
 [license file](./LICENSE.md).
-
-## Acknowledgments <img align="right" width="15%" src="https://github.com/EgorOrachyov/graph-bench/raw/main/docs/jetbrains-logo.png?raw=true&sanitize=true">
-
-This is a research project of the Programming Languages and Tools Laboratory
-at JetBrains-Research. Laboratory website [link](https://research.jetbrains.org/groups/plt_lab/).

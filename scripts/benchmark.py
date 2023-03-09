@@ -22,7 +22,8 @@ def main():
     parser.add_argument("--num-iterations", default=10, help="Number of iteration to run each test")
     parser.add_argument("--source", default=config.DEFAULT_SOURCE_VERTEX, help="Source vertex for bfs, sssp, etc.")
     parser.add_argument("--graph", help="Graph to run algorithms")
-    parser.add_argument("--platform", default="0", help="OpenCL platform to run (for OpenCL-based tools)")
+    parser.add_argument("--platform", default="0", help="Acc platform to run (for OpenCL-based tools)")
+    parser.add_argument("--device", default="0", help="Acc device to run (for OpenCL-based tools)")
     parser.add_argument("--csvall", default="benchmark_all.cvs", help="Csv table to save benchmark overall results")
     parser.add_argument("--csvtool", default="benchmark_tool.cvs", help="Csv table to save benchmark per-tool results")
     args = parser.parse_args()
@@ -45,7 +46,8 @@ def main():
     params = {
         "num_iterations": int(args.num_iterations),
         "source": int(args.source),
-        "platform": str(args.platform)
+        "platform": str(args.platform),
+        "device": str(args.device)
     }
 
     print("Run benchmarks:")
