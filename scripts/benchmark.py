@@ -23,7 +23,8 @@ def main():
     parser.add_argument("--source", default=config.DEFAULT_SOURCE_VERTEX, help="Source vertex for bfs, sssp, etc.")
     parser.add_argument("--graph", help="Graph to run algorithms")
     parser.add_argument("--platform", default="0", help="OpenCL platform to run (for OpenCL-based tools)")
-    parser.add_argument("--csv", default="benchmark.cvs", help="Csv table to save benchmark results")
+    parser.add_argument("--csvall", default="benchmark_all.cvs", help="Csv table to save benchmark overall results")
+    parser.add_argument("--csvtool", default="benchmark_tool.cvs", help="Csv table to save benchmark per-tool results")
     args = parser.parse_args()
 
     if args.algo == 'all':
@@ -75,7 +76,8 @@ def main():
                     print(f"  Failed due {e}")
 
     stats.output_stats(run_stats)
-    stats.output_stats_csv(run_stats, args.csv)
+    stats.output_stats_overall(run_stats, args.csvtool)
+    stats.output_stats_tool(run_stats, args.csvtool)
 
 
 if __name__ == '__main__':

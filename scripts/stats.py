@@ -34,14 +34,14 @@ def output_stats(run_stats: dict):
         print_table(build_table(stats, lambda x: x.avg()))
 
 
-def output_stats_file(run_stats: dict, file_to_save):
+def output_stats_overall(run_stats: dict, file_to_save):
     with open(file_to_save, 'w') as file:
         for algo, stats in run_stats.items():
             file.write(f"{algo}\n")
             print_table_file(build_table(stats, lambda x: x.avg()), file)
 
 
-def output_stats_csv(run_stats: dict, file_to_save):
+def output_stats_tool(run_stats: dict, file_to_save):
     with open(file_to_save, 'w') as file:
         file.write("graph,avg,sd,min,max\n")
         for algo, stats_algo in run_stats.items():
