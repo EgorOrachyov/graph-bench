@@ -114,7 +114,6 @@ GRAPHS_DATA = {
 
 GRAPHS_BFS = [
     GRAPH_coAuthorsCiteseer,
-    GRAPH_mycielskian19,
     GRAPH_coPapersDBLP,
     GRAPH_amazon2008,
     GRAPH_hollywood2009,
@@ -131,7 +130,6 @@ GRAPHS_BFS = [
 
 GRAPHS_SSSP = [
     GRAPH_coAuthorsCiteseer,
-    GRAPH_mycielskian19,
     GRAPH_coPapersDBLP,
     GRAPH_amazon2008,
     GRAPH_hollywood2009,
@@ -148,7 +146,6 @@ GRAPHS_SSSP = [
 
 GRAPHS_PR = [
     GRAPH_coAuthorsCiteseer,
-    GRAPH_mycielskian19,
     GRAPH_coPapersDBLP,
     GRAPH_amazon2008,
     GRAPH_hollywood2009,
