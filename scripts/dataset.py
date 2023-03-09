@@ -1,10 +1,24 @@
 import config
-import dataclasses
+import json
+
+DATASET_JSON = json.loads((config.METAFILES / "dataset.json").read_text())["graphs"]
 
 
-@dataclasses.dataclass
 class Graph:
-    id: str
+    def __init__(self, identifier):
+        self.json = next(filter(lambda d: d["source-file"] == f"{identifier}.mtx", DATASET_JSON))
+        self.identifier = identifier
+        self.meta_info = self.json["meta-info"]
+        self.link = self.json["link"]
+        self.file_name = self.json["source-file"]
+        self.type = self.json["type"]
+        self.dim = tuple(map(int, self.json["size"].split()[0:2]))
+        self.size = int(self.json["size"].split()[2])
+        self.deg_min = self.json["deg-min"]
+        self.deg_max = self.json["deg-max"]
+        self.deg_avg = self.json["deg-avg"]
+        self.deg_sd = self.json["deg-sd"]
+        self.distribution = [tuple(map(float, d.split())) for d in self.json["deg-distribution"]]
 
     def path_original(self):
         return config.DATASET / f"{self.id}.mtx"
@@ -20,6 +34,10 @@ class Graph:
 
     def __repr__(self):
         return self.about()
+
+    @property
+    def id(self) -> str:
+        return self.identifier
 
 
 ALGORITHM_NAME_bfs = "bfs"

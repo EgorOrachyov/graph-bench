@@ -4,6 +4,7 @@ import platform
 ROOT = pathlib.Path(__file__).parent.parent
 DATASET = ROOT / "dataset"
 DEPS = ROOT / "deps"
+METAFILES = ROOT / "metafiles"
 
 SYSTEM = {'Darwin': 'macos', 'Linux': 'linux', 'Windows': 'windows'}[platform.system()]
 EXECUTABLE_EXT = {'macos': '', 'windows': '.exe', 'linux': ''}[SYSTEM]
