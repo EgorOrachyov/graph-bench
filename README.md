@@ -15,23 +15,23 @@ Benchmarks suite for performance study of various graph analysis frameworks for 
 
 ## Dataset description
 
-| Name              | Vertices |     Edges | Max Degree |                                                                                                                             Download |
-|:------------------|---------:|----------:|-----------:|-------------------------------------------------------------------------------------------------------------------------------------:|
-| coAuthorsCiteseer |   227.3K |      1.6M |       1372 |                                    [link](https://suitesparse-collection-website.herokuapp.com/MM/DIMACS10/coAuthorsCiteseer.tar.gz) |
-| mycielskian19     |   393.2K | 903194.7M |     196607 |                                                                               [link](http://sparse.tamu.edu/Mycielski/mycielskian19) |
-| coPapersDBLP      |   540.4K |     30.4M |       3299 |                                         [link](https://suitesparse-collection-website.herokuapp.com/MM/DIMACS10/coPapersDBLP.tar.gz) |
-| amazon-2008       |   735.3K |      5.2M |       1086 |                                                                                       [link](http://sparse.tamu.edu/LAW/amazon-2008) |
-| hollywood-2009    |     1.1M |    113.8M |      11467 |                                            [link](https://suitesparse-collection-website.herokuapp.com/MM/LAW/hollywood-2009.tar.gz) |
-| belgium_osm       |     1.4M |      3.1M |         10 |                                                                                  [link](http://sparse.tamu.edu/DIMACS10/belgium_osm) |
-| roadNet-CA        |     1.9M |      5.5M |         12 |                                               [link](https://suitesparse-collection-website.herokuapp.com/MM/SNAP/roadNet-CA.tar.gz) |
-| com-Orcut         |       3M |      234M |      33313 |                                                [link](https://suitesparse-collection-website.herokuapp.com/MM/SNAP/com-Orkut.tar.gz) |
-| cit-Patents       |     3.7M |     16.5M |        793 |                                              [link](https://suitesparse-collection-website.herokuapp.com/MM/SNAP/cit-Patents.tar.gz) |
-| rgg_n_2_22_s0     |     4.1M |     60.7M |         36 |                                        [link](https://suitesparse-collection-website.herokuapp.com/MM/DIMACS10/rgg_n_2_22_s0.tar.gz) |
-| soc-LiveJournal   |     4.8M |     68.9M |      20333 |                                         [link](https://suitesparse-collection-website.herokuapp.com/MM/SNAP/soc-LiveJournal1.tar.gz) |
-| indochina-2004    |     7.5M |    194.1M |     256425 |                                            [link](https://suitesparse-collection-website.herokuapp.com/MM/LAW/indochina-2004.tar.gz) |
-| rgg_n_2_23_s0     |     8.3M |    127.0M |         40 |                                        [link](https://suitesparse-collection-website.herokuapp.com/MM/DIMACS10/rgg_n_2_23_s0.tar.gz) |
-| road_central      |    14.1M |     33.8M |          8 |                                                                                 [link](http://sparse.tamu.edu/DIMACS10/road_central) |
-| twitter7          |    41.6M |      1.4B |      3.08M |                                                                                         [link](http://sparse.tamu.edu/SNAP/twitter7) |
+| Name              | Vertices |   Edges | Avg Deg | Sd Deg | Min Deg |   Max Deg |                                                                                              Link |
+|:------------------|---------:|--------:|--------:|-------:|--------:|----------:|--------------------------------------------------------------------------------------------------:|
+| coAuthorsCiteseer |   227.3K |    1.6M |     7.2 |   10.6 |     0.0 |    1372.0 | [link](https://suitesparse-collection-website.herokuapp.com/MM/DIMACS10/coAuthorsCiteseer.tar.gz) |
+| mycielskian19     |   393.2K |  903.2M |  2296.4 | 3950.8 |     0.0 |  196606.0 |                                            [link](http://sparse.tamu.edu/Mycielski/mycielskian19) |
+| coPapersDBLP      |   540.5K |   30.5M |    56.4 |   66.2 |     0.0 |    3299.0 |      [link](https://suitesparse-collection-website.herokuapp.com/MM/DIMACS10/coPapersDBLP.tar.gz) |
+| amazon-2008       |   735.3K |    7.0M |     9.6 |    7.6 |     0.0 |    1077.0 |                                                    [link](http://sparse.tamu.edu/LAW/amazon-2008) |
+| hollywood-2009    |     1.1M |  112.8M |    98.9 |  271.9 |     0.0 |   11467.0 |         [link](https://suitesparse-collection-website.herokuapp.com/MM/LAW/hollywood-2009.tar.gz) |
+| belgium_osm       |     1.4M |    3.1M |     2.2 |    0.5 |     0.0 |      10.0 |                                               [link](http://sparse.tamu.edu/DIMACS10/belgium_osm) |
+| roadNet-CA        |     2.0M |    5.5M |     2.8 |    1.0 |     0.0 |      12.0 |            [link](https://suitesparse-collection-website.herokuapp.com/MM/SNAP/roadNet-CA.tar.gz) |
+| com-Orkut         |     3.1M |  234.4M |    76.3 |  154.8 |     0.0 |   33313.0 |             [link](https://suitesparse-collection-website.herokuapp.com/MM/SNAP/com-Orkut.tar.gz) |
+| cit-Patents       |     3.8M |   33.0M |     8.8 |   10.5 |     0.0 |     793.0 |           [link](https://suitesparse-collection-website.herokuapp.com/MM/SNAP/cit-Patents.tar.gz) |
+| rgg_n_2_22_s0     |     4.2M |   60.7M |    14.5 |    3.8 |     0.0 |      36.0 |     [link](https://suitesparse-collection-website.herokuapp.com/MM/DIMACS10/rgg_n_2_22_s0.tar.gz) |
+| soc-LiveJournal   |     4.8M |   85.7M |    17.7 |   52.0 |     0.0 |   20333.0 |      [link](https://suitesparse-collection-website.herokuapp.com/MM/SNAP/soc-LiveJournal1.tar.gz) |
+| indochina-2004    |     7.4M |  302.0M |    40.7 |  329.6 |     0.0 |  256425.0 |         [link](https://suitesparse-collection-website.herokuapp.com/MM/LAW/indochina-2004.tar.gz) |
+| rgg_n_2_23_s0     |     8.4M |  127.0M |    15.1 |    3.9 |     0.0 |      40.0 |     [link](https://suitesparse-collection-website.herokuapp.com/MM/DIMACS10/rgg_n_2_23_s0.tar.gz) |
+| road_central      |    14.1M |   33.9M |     2.4 |    0.9 |     0.0 |       8.0 |                                              [link](http://sparse.tamu.edu/DIMACS10/road_central) |
+| twitter7          |    41.7M | 2405.0M |    57.7 |  401.5 |     0.0 | 2997490.0 |                                                      [link](http://sparse.tamu.edu/SNAP/twitter7) |
 
 ## Instructions
 

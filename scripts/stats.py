@@ -1,3 +1,23 @@
+import dataset
+
+
+def is_number(n):
+    try:
+        float(n)
+        return True
+    except ValueError:
+        return False
+
+
+def pretty_size(size):
+    if size < 1000:
+        return f"{size:.1f}"
+    elif size < 1000 * 1000:
+        return f"{(size / 1000.0):.1f}K"
+    else:
+        return f"{(size / 1000000.0):.1f}M"
+
+
 def print_table(table):
     for row in table:
         print(", ".join([str(v) for v in row]))
@@ -50,3 +70,19 @@ def output_stats_tool(run_stats: dict, file_to_save):
                 file.write(f"{tool},,,,\n")
                 for g, run in stats_tool.items():
                     file.write(f"{g},{run.avg()},{run.sd()},{run.minimum()},{run.maximum()}\n")
+
+
+def output_stats_graphs(file_to_save):
+    with open(file_to_save, 'w') as file:
+        file.write(f"|Name|Vertices|Edges|Avg Deg|Sd Deg|Min Deg|Max Deg|Link|\n")
+        file.write(f"|:---|-------:|----:|------:|-----:|------:|------:|---:|\n")
+        for name, graph in dataset.GRAPHS_DATA.items():
+            file.write(f"|"
+                       f"{name}|"
+                       f"{pretty_size(graph.dim[0])}|"
+                       f"{pretty_size(graph.size)}|"
+                       f"{graph.deg_avg:.1f}|"
+                       f"{graph.deg_sd:.1f}|"
+                       f"{graph.deg_min:.1f}|"
+                       f"{graph.deg_max:.1f}|"
+                       f"[link]({graph.link})|\n")

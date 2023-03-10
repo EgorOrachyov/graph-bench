@@ -24,8 +24,8 @@ def main():
     parser.add_argument("--graph", help="Graph to run algorithms")
     parser.add_argument("--platform", default="0", help="Acc platform to run (for OpenCL-based tools)")
     parser.add_argument("--device", default="0", help="Acc device to run (for OpenCL-based tools)")
-    parser.add_argument("--csvall", default="benchmark_all.cvs", help="Csv table to save benchmark overall results")
-    parser.add_argument("--csvtool", default="benchmark_tool.cvs", help="Csv table to save benchmark per-tool results")
+    parser.add_argument("--csvall", default="benchmark_all.csv", help="Csv table to save benchmark overall results")
+    parser.add_argument("--csvtool", default="benchmark_tool.csv", help="Csv table to save benchmark per-tool results")
     args = parser.parse_args()
 
     if args.algo == 'all':
@@ -74,6 +74,10 @@ def main():
 
                     res = tool_stats[g.id] = tool.run(g, algorithm, params)
                     print(f"  Result: {res}")
+
+                    # Dump data after each iteration
+                    stats.output_stats_overall(run_stats, args.csvall)
+                    stats.output_stats_tool(run_stats, args.csvtool)
                 except Exception as e:
                     print(f"  Failed due {e}")
 
