@@ -21,13 +21,16 @@ class Graph:
         self.distribution = [tuple(map(float, d.split())) for d in self.json["deg-distribution"]]
 
     def path_original(self):
-        return config.DATASET / f"{self.id}.mtx"
+        return config.DATASET / self.file()
 
     def path(self):
-        return config.DATASET / f"{self.id}.mtx{config.DATASET_SUFFIX}"
+        return config.DATASET / f"{self.file()}{config.DATASET_SUFFIX}"
 
     def about(self):
         return self.id
+
+    def file(self):
+        return f"{self.id}.mtx"
 
     def __str__(self):
         return self.about()
@@ -81,7 +84,6 @@ GRAPHS_NAMES_ALL = [
 
 GRAPHS_NAMES_DEFAULT = [
     GRAPH_NAME_coAuthorsCiteseer,
-    GRAPH_NAME_mycielskian19,
     GRAPH_NAME_coPapersDBLP,
     GRAPH_NAME_amazon2008,
     GRAPH_NAME_hollywood2009,
