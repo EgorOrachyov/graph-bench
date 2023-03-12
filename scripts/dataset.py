@@ -82,6 +82,24 @@ GRAPHS_NAMES_ALL = [
     GRAPH_NAME_twitter7
 ]
 
+GRAPHS_NAMES_SHORT = {
+    GRAPH_NAME_coAuthorsCiteseer: "coAutCit",
+    GRAPH_NAME_mycielskian19: "myc19",
+    GRAPH_NAME_coPapersDBLP: "coPapDBLP",
+    GRAPH_NAME_amazon2008: "amaz2008",
+    GRAPH_NAME_hollywood2009: "holl2009",
+    GRAPH_NAME_belgium_osm: "belgosm",
+    GRAPH_NAME_roadNetCA: "roadNetCA,",
+    GRAPH_NAME_comOrkut: "comOrkut",
+    GRAPH_NAME_citPatents: "citPatents",
+    GRAPH_NAME_rgg_n_2_22_s0: "rggn222s0",
+    GRAPH_NAME_socLiveJournal: "socLiveJour",
+    GRAPH_NAME_indochina2004: "i2004",
+    GRAPH_NAME_rgg_n_2_23_s0: "rggn223s0",
+    GRAPH_NAME_road_central: "roadcent",
+    GRAPH_NAME_twitter7: "twit7"
+}
+
 GRAPHS_NAMES_DEFAULT = [
     GRAPH_NAME_coAuthorsCiteseer,
     GRAPH_NAME_coPapersDBLP,
