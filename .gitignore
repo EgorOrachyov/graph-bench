@@ -4,3 +4,4 @@
 /dataset/*
 !/dataset/instructions.txt
 /**/*.csv
+/**/*.pdf

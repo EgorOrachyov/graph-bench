@@ -89,7 +89,7 @@ GRAPHS_NAMES_SHORT = {
     GRAPH_NAME_amazon2008: "amaz2008",
     GRAPH_NAME_hollywood2009: "holl2009",
     GRAPH_NAME_belgium_osm: "belgosm",
-    GRAPH_NAME_roadNetCA: "roadNetCA,",
+    GRAPH_NAME_roadNetCA: "roadNetCA",
     GRAPH_NAME_comOrkut: "comOrkut",
     GRAPH_NAME_citPatents: "citPatents",
     GRAPH_NAME_rgg_n_2_22_s0: "rggn222s0",
